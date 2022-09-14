@@ -240,7 +240,7 @@ Please try to create bug reports that are:
 
 herkulex-stm32f1xx has been created by Ronan Bonnet.
 
-(Joel)[https://github.com/joelimgu] has contributed to the project and helped me to solve some bugs.
+[Joel](https://github.com/joelimgu) has contributed to the project and helped me to solve some bugs.
 
 I'd like to thank Paul Florence for his drs-0x01 driver than helped me to develop this driver.
 
