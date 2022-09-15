@@ -5,12 +5,12 @@ use drs_0x01::{
 };
 
 /// This structure allows you to control a servomotor .
+#[derive(Debug)]
 pub struct Motor<'a, Comm: HerkulexCommunication> {
     communication: &'a RefCell<Comm>,
     id: u8,
 }
 
-#[deny(arithmetic_overflow)]
 impl<'a, Comm: HerkulexCommunication> Motor<'_, Comm> {
     /// Create a new servo motor, associated with its ID.
     /// To move, enable torque.

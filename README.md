@@ -98,12 +98,12 @@ restart.
 The value of the ID will be changed to the wanted one **until the restart**.
 
 ```rust
-    // Create a communication
+        // Create a communication
 let communication = Communication::new( & mut tx, rx);
 
 // Create a motors group associated with a communication
 let motors = Motors::new(communication);
-
+    
 // Create a servomotor linked with the servo with the id 0x00
 let motor0 = motors.new_motor(0x00);
 
@@ -195,32 +195,33 @@ Check the documentation to know whether you will get an array or an integer.
 ⚠ Be careful with the broadcast id, the program may stay stuck in an interruption forever.
 
 ### Get the ID of a servo with unknown id
+
 1. Plug **ONLY** one servo
 2. Create a motor with the broadcast id (0xFE)
 3. Send a stat request
 4. Receive an answer
 5. Read the 4th column of the packet
 
-See the example below : 
+See the example below :
 
 ```rust
     // Create a communication
-    let communication = Communication::new(&mut tx, rx);
+let communication = Communication::new( & mut tx, rx);
 
-    // Create a motors group associated with a communication
-    let motors = Motors::new(communication);
+// Create a motors group associated with a communication
+let motors = Motors::new(communication);
 
-    // Create a servomotor linked with the broadcast ID 0xFE
-    let motor0 = motors.new_motor(0xFE);
+// Create a servomotor linked with the broadcast ID 0xFE
+let motor0 = motors.new_motor(0xFE);
 
-    // Send a stat request
-    // A stat request ask the servo how it is doing
-    //
-    // You should get an answer : an entire packet
-    // The id of the motor will be in the 4th column of the array received
-    //
-    // You can check the manual about the stat command
-    let id = motor0.stat()[4];
+// Send a stat request
+// A stat request ask the servo how it is doing
+//
+// You should get an answer : an entire packet
+// The id of the motor will be in the 4th column of the array received
+//
+// You can check the manual about the stat command
+let id = motor0.stat()[4];
 ```
 
 See [here](examples/get_id_unknown_servo.rs) for more information.
