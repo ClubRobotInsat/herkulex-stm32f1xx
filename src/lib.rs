@@ -60,4 +60,4 @@ pub mod motors;
 /// A module that implements a USART communication for the servos communications.
 pub mod communication;
 
-mod motor;
+pub mod motor;
