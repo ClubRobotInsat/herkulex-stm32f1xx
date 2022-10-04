@@ -35,7 +35,6 @@ impl<'a> Communication<'a> {
         }
 
         rx.listen();
-        rx.listen_idle();
         cortex_m::interrupt::free(|_| unsafe {
             RX.replace(rx);
         });
